@@ -6,19 +6,14 @@ import CoreBluetooth
 public struct Service: Codable {
     public let name: String
     public let identifier: String
-    public let uuid: UUID
+    public let uuidString: String
     public let source: String
     
-    public init(name: String, identifier: String, uuid: UUID, source: String) {
+    public init(name: String, identifier: String, uuidString: String, source: String) {
         self.name = name
         self.identifier = identifier
-        self.uuid = uuid
+        self.uuidString = uuidString
         self.source = source
     }
 }
 
-extension Service {
-    struct A {
-        let _8 = "8"
-    }
-}
