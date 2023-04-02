@@ -68,9 +68,10 @@ def print_all(items, parent_keys, concat=StringConcatenator()):
             (_n, _c) = print_all(items[key], parent_keys + [key], concat)
             all_names += _n
         
-        concat.add('public extension ' + struct_name + '{')
+        concat.add('extension ' + struct_name + ': All {')
+        concat.add('public typealias T = ' + parent_keys[0])
         all_names_str = ', '.join(all_names)
-        str = 'static let all = [' + all_names_str + ']'
+        str = 'public static let all = [' + all_names_str + ']'
         concat.add(str)
         concat.add('}')
 

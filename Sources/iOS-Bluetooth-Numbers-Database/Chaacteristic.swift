@@ -1,6 +1,6 @@
 import Foundation
 
-public struct Characteristic: Codable, IdentifiableWithUUID {
+public struct Characteristic: Codable, IdentifiableWithUUID, Equatable {
     public let name: String
     public let identifier: String
     public let uuidString: String

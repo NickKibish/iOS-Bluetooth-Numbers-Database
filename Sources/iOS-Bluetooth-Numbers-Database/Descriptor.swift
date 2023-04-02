@@ -1,6 +1,6 @@
 import Foundation
 
-public struct Descriptor: Codable, IdentifiableWithUUID {
+public struct Descriptor: Codable, IdentifiableWithUUID, Equatable {
   public let name: String
   public let identifier: String
   public let uuidString: String

@@ -11,6 +11,12 @@ public protocol IdentifiableWithUUID {
   var uuidString: String { get }
 }
 
+public extension IdentifiableWithUUID {
+    var uuid: CBUUID {
+        return CBUUID(string: uuidString)
+    }
+}
+
 public protocol All {
   associatedtype T
 
