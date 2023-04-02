@@ -1,9 +1,6 @@
-// Characteristic is a codable struct that represents a Bluetooth characteristic.
-// { "name": "Aerobic Heart Rate Lower Limit", "identifier": "org.bluetooth.characteristic.aerobic_heart_rate_lower_limit", "uuid": "2A7E" , "source": "gss"},
+import Foundation
 
-import CoreBluetooth
-
-public struct Characteristic: Codable {
+public struct Characteristic: Codable, IdentifiableWithUUID {
     public let name: String
     public let identifier: String
     public let uuidString: String
@@ -14,6 +11,5 @@ public struct Characteristic: Codable {
         self.identifier = identifier
         self.uuidString = uuidString
         self.source = source
-        
     }
 }

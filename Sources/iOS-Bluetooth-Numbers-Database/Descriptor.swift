@@ -1,15 +1,15 @@
-import CoreBluetooth
+import Foundation
 
-public struct Descriptor: Codable {
-    public let name: String
-    public let identifier: String
-    public let uuid: UUID
-    public let source: String
-    
-    public init(name: String, identifier: String, uuid: UUID, source: String) {
-        self.name = name
-        self.identifier = identifier
-        self.uuid = uuid
-        self.source = source
-    }
+public struct Descriptor: Codable, IdentifiableWithUUID {
+  public let name: String
+  public let identifier: String
+  public let uuidString: String
+  public let source: String
+
+  public init(name: String, identifier: String, uuidString: String, source: String) {
+    self.name = name
+    self.identifier = identifier
+    self.uuidString = uuidString
+    self.source = source
+  }
 }
