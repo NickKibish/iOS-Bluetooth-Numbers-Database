@@ -26,3 +26,15 @@ jobs:
       run: swift build -v
     - name: Run tests
       run: swift test -v
+    - name: Install Formatter
+      run: brew install mint
+    - run: export PATH=$PATH:$HOME/.mint/bin
+    - run: mint install apple/swift-format@release/5.7
+    - run: swift-format -i -r Sources/iOS-Bluetooth-Numbers-Database/Extensions
+    - name: Commit changes
+      run: |
+        git config --global user.name 'Automatic Commit'
+        git config --global user.email 'automatic-commit@github.com'
+        git add .
+        git commit -m 'Github Action: Format Code'
+        git push
