@@ -28,8 +28,8 @@ jobs:
       run: swift test -v
     - name: Install Formatter
       run: brew install mint
-    - run: export PATH=$PATH:$HOME/.mint/bin
     - run: mint install apple/swift-format@release/5.7
+    - run: export PATH=$PATH:$HOME/.mint/bin
     - run: swift-format -i -r Sources/iOS-Bluetooth-Numbers-Database/Extensions
     - name: Commit changes
       run: |
