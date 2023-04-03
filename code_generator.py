@@ -50,32 +50,26 @@ def print_all(items, parent_keys, concat=StringConcatenator()):
     :param parent_keys: list of keys to the current item. It will be used to create name of the struct
     """
     struct_name = ".".join(parent_keys)
-    keys = items.keys()
+    keys = list(items.keys())
+    all_names = []
+    for key in keys:
+        if key == INNER_SERVICE_KEY:
+            continue
+        (_n, _c) = print_all(items[key], parent_keys + [key], concat)
+        all_names += _n
+
     if INNER_SERVICE_KEY in keys:
-        service_names = [] 
         for service in items[INNER_SERVICE_KEY]:
-            service_names.append(struct_name + '.' + service["var_name"])
+            all_names.append(struct_name + '.' + service["var_name"])
+    
+    concat.add('extension ' + struct_name + ': All {')
+    concat.add('public typealias T = ' + parent_keys[0])
+    all_names_str = ', '.join(all_names)
+    str = 'public static let all = [' + all_names_str + ']'
+    concat.add(str)
+    concat.add('}')
 
-        concat.add('extension ' + struct_name + ': All {')
-        concat.add('public typealias T = ' + parent_keys[0])
-        concat.add('public static let all = [' + ", ".join(service_names) + ']')
-        concat.add('}')
-
-        return (service_names, concat)
-    else:
-        all_names = []
-        for key in keys:
-            (_n, _c) = print_all(items[key], parent_keys + [key], concat)
-            all_names += _n
-        
-        concat.add('extension ' + struct_name + ': All {')
-        concat.add('public typealias T = ' + parent_keys[0])
-        all_names_str = ', '.join(all_names)
-        str = 'public static let all = [' + all_names_str + ']'
-        concat.add(str)
-        concat.add('}')
-
-        return (all_names, concat)
+    return (all_names, concat)
 
 def print_service(service):
     """

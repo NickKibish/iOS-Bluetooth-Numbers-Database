@@ -8,7 +8,7 @@
             "name": "Python: Current File",
             "type": "python",
             "request": "launch",
-            "program": "convert_services.py",
+            "program": "generate.py",
             "console": "integratedTerminal",
             "justMyCode": true
         }

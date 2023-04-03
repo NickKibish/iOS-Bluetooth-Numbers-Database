@@ -1222,9 +1222,16 @@ extension Service.Nordicsemi: All {
     Service.Nordicsemi.EdgeImpulse.edgeImpulseRemoteManagementService,
   ]
 }
+extension Service.Google.Eddystone.Configuration: All {
+  public typealias T = Service
+  public static let all = [Service.Google.Eddystone.Configuration.eddystoneConfigurationService]
+}
 extension Service.Google.Eddystone: All {
   public typealias T = Service
-  public static let all = [Service.Google.Eddystone.eddystone]
+  public static let all = [
+    Service.Google.Eddystone.Configuration.eddystoneConfigurationService,
+    Service.Google.Eddystone.eddystone,
+  ]
 }
 extension Service.Google.FastPair: All {
   public typealias T = Service
@@ -1233,6 +1240,7 @@ extension Service.Google.FastPair: All {
 extension Service.Google: All {
   public typealias T = Service
   public static let all = [
+    Service.Google.Eddystone.Configuration.eddystoneConfigurationService,
     Service.Google.Eddystone.eddystone, Service.Google.FastPair.fastPairService,
   ]
 }
@@ -1446,6 +1454,7 @@ extension Service: All {
     Service.Nordicsemi.DFU.Legacy.legacyDFUService, Service.Nordicsemi.DFU.Secure.secureDFUService,
     Service.Nordicsemi.DFU.ButtonlessExperimental.experimentalButtonlessDFUService,
     Service.Nordicsemi.EdgeImpulse.edgeImpulseRemoteManagementService,
+    Service.Google.Eddystone.Configuration.eddystoneConfigurationService,
     Service.Google.Eddystone.eddystone, Service.Google.FastPair.fastPairService,
     Service.IO.Runtime.MCUMGR.BLE.SMP.sMPService,
     Service.Lego.LWP3.Hub.legoWirelessProtocolV3HubService,

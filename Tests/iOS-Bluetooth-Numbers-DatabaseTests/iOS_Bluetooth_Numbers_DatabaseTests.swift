@@ -26,7 +26,7 @@ final class iOS_Bluetooth_Numbers_DatabaseTests: XCTestCase {
         XCTAssertEqual(hipCircumference, Characteristic.HipCircumference.hipCircumference)
         
         let eddystoneConfigurationService = Service.find(by: CBUUID(string: "A3C87500-8ED3-4BDF-8A39-A01BEBEDE295"))
-//        XCTAssertEqual(eddystoneConfigurationService, Service.Google.Eddystone.Configuration.eddystoneConfigurationService)
+        XCTAssertEqual(eddystoneConfigurationService, Service.Google.Eddystone.Configuration.eddystoneConfigurationService)
         
         let validRange = Descriptor.find(by: CBUUID(string: "2906"))
         XCTAssertEqual(validRange, Descriptor.ValidRange.validRange)

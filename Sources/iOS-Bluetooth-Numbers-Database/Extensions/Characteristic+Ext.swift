@@ -4992,9 +4992,39 @@ extension Characteristic.TdsControlPoint: All {
   public typealias T = Characteristic
   public static let all = [Characteristic.TdsControlPoint.tdsControlPoint]
 }
+extension Characteristic.Temperature._8.DayPeriod: All {
+  public typealias T = Characteristic
+  public static let all = [Characteristic.Temperature._8.DayPeriod.temperature8InAPeriodOfDay]
+}
+extension Characteristic.Temperature._8.Statistics: All {
+  public typealias T = Characteristic
+  public static let all = [Characteristic.Temperature._8.Statistics.temperature8Statistics]
+}
+extension Characteristic.Temperature._8: All {
+  public typealias T = Characteristic
+  public static let all = [
+    Characteristic.Temperature._8.DayPeriod.temperature8InAPeriodOfDay,
+    Characteristic.Temperature._8.Statistics.temperature8Statistics,
+    Characteristic.Temperature._8.temperature8,
+  ]
+}
+extension Characteristic.Temperature.Range: All {
+  public typealias T = Characteristic
+  public static let all = [Characteristic.Temperature.Range.temperatureRange]
+}
+extension Characteristic.Temperature.Statistics: All {
+  public typealias T = Characteristic
+  public static let all = [Characteristic.Temperature.Statistics.temperatureStatistics]
+}
 extension Characteristic.Temperature: All {
   public typealias T = Characteristic
-  public static let all = [Characteristic.Temperature.temperature]
+  public static let all = [
+    Characteristic.Temperature._8.DayPeriod.temperature8InAPeriodOfDay,
+    Characteristic.Temperature._8.Statistics.temperature8Statistics,
+    Characteristic.Temperature._8.temperature8, Characteristic.Temperature.Range.temperatureRange,
+    Characteristic.Temperature.Statistics.temperatureStatistics,
+    Characteristic.Temperature.temperature,
+  ]
 }
 extension Characteristic.TemperatureCelsius: All {
   public typealias T = Characteristic
@@ -5161,13 +5191,38 @@ extension Characteristic.DateUtc: All {
   public typealias T = Characteristic
   public static let all = [Characteristic.DateUtc.dateUtc]
 }
+extension Characteristic.ElectricCurrent.Range: All {
+  public typealias T = Characteristic
+  public static let all = [Characteristic.ElectricCurrent.Range.electricCurrentRange]
+}
+extension Characteristic.ElectricCurrent.Specification: All {
+  public typealias T = Characteristic
+  public static let all = [
+    Characteristic.ElectricCurrent.Specification.electricCurrentSpecification
+  ]
+}
+extension Characteristic.ElectricCurrent.Statistics: All {
+  public typealias T = Characteristic
+  public static let all = [Characteristic.ElectricCurrent.Statistics.electricCurrentStatistics]
+}
 extension Characteristic.ElectricCurrent: All {
   public typealias T = Characteristic
-  public static let all = [Characteristic.ElectricCurrent.electricCurrent]
+  public static let all = [
+    Characteristic.ElectricCurrent.Range.electricCurrentRange,
+    Characteristic.ElectricCurrent.Specification.electricCurrentSpecification,
+    Characteristic.ElectricCurrent.Statistics.electricCurrentStatistics,
+    Characteristic.ElectricCurrent.electricCurrent,
+  ]
+}
+extension Characteristic.Energy.PeriodDay: All {
+  public typealias T = Characteristic
+  public static let all = [Characteristic.Energy.PeriodDay.energyInAPeriodOfDay]
 }
 extension Characteristic.Energy: All {
   public typealias T = Characteristic
-  public static let all = [Characteristic.Energy.energy]
+  public static let all = [
+    Characteristic.Energy.PeriodDay.energyInAPeriodOfDay, Characteristic.Energy.energy,
+  ]
 }
 extension Characteristic.EventStatistics: All {
   public typealias T = Characteristic
@@ -5254,9 +5309,15 @@ extension Characteristic.Percentage8: All {
   public typealias T = Characteristic
   public static let all = [Characteristic.Percentage8.percentage8]
 }
+extension Characteristic.Power.Specification: All {
+  public typealias T = Characteristic
+  public static let all = [Characteristic.Power.Specification.powerSpecification]
+}
 extension Characteristic.Power: All {
   public typealias T = Characteristic
-  public static let all = [Characteristic.Power.power]
+  public static let all = [
+    Characteristic.Power.Specification.powerSpecification, Characteristic.Power.power,
+  ]
 }
 extension Characteristic.RelativeRuntime.CurrentRange: All {
   public typealias T = Characteristic
@@ -5361,9 +5422,20 @@ extension Characteristic.Time: All {
     Characteristic.Time.Second._16.timeSecond16, Characteristic.Time.Second._8.timeSecond8,
   ]
 }
+extension Characteristic.Voltage.Specification: All {
+  public typealias T = Characteristic
+  public static let all = [Characteristic.Voltage.Specification.voltageSpecification]
+}
+extension Characteristic.Voltage.Statistics: All {
+  public typealias T = Characteristic
+  public static let all = [Characteristic.Voltage.Statistics.voltageStatistics]
+}
 extension Characteristic.Voltage: All {
   public typealias T = Characteristic
-  public static let all = [Characteristic.Voltage.voltage]
+  public static let all = [
+    Characteristic.Voltage.Specification.voltageSpecification,
+    Characteristic.Voltage.Statistics.voltageStatistics, Characteristic.Voltage.voltage,
+  ]
 }
 extension Characteristic.VolumeFlow: All {
   public typealias T = Characteristic
@@ -5786,9 +5858,25 @@ extension Characteristic.Set: All {
     Characteristic.Set.MemberLock.setMemberLock, Characteristic.Set.MemberRank.setMemberRank,
   ]
 }
+extension Characteristic.DeviceTime.Feature: All {
+  public typealias T = Characteristic
+  public static let all = [Characteristic.DeviceTime.Feature.deviceTimeFeature]
+}
+extension Characteristic.DeviceTime.Parameters: All {
+  public typealias T = Characteristic
+  public static let all = [Characteristic.DeviceTime.Parameters.deviceTimeParameters]
+}
+extension Characteristic.DeviceTime.Cp: All {
+  public typealias T = Characteristic
+  public static let all = [Characteristic.DeviceTime.Cp.deviceTimeControlPoint]
+}
 extension Characteristic.DeviceTime: All {
   public typealias T = Characteristic
-  public static let all = [Characteristic.DeviceTime.deviceTime]
+  public static let all = [
+    Characteristic.DeviceTime.Feature.deviceTimeFeature,
+    Characteristic.DeviceTime.Parameters.deviceTimeParameters,
+    Characteristic.DeviceTime.Cp.deviceTimeControlPoint, Characteristic.DeviceTime.deviceTime,
+  ]
 }
 extension Characteristic.TimeChangeLogData: All {
   public typealias T = Characteristic
@@ -7624,6 +7712,10 @@ extension Characteristic: All {
     Characteristic.SupportedSpeedRange.supportedSpeedRange,
     Characteristic.SupportedUnreadAlertCategory.supportedUnreadAlertCategory,
     Characteristic.SystemId.systemId, Characteristic.TdsControlPoint.tdsControlPoint,
+    Characteristic.Temperature._8.DayPeriod.temperature8InAPeriodOfDay,
+    Characteristic.Temperature._8.Statistics.temperature8Statistics,
+    Characteristic.Temperature._8.temperature8, Characteristic.Temperature.Range.temperatureRange,
+    Characteristic.Temperature.Statistics.temperatureStatistics,
     Characteristic.Temperature.temperature, Characteristic.TemperatureCelsius.temperatureCelsius,
     Characteristic.TemperatureFahrenheit.temperatureFahrenheit,
     Characteristic.TemperatureMeasurement.temperatureMeasurement,
@@ -7650,7 +7742,11 @@ extension Characteristic: All {
     Characteristic.CorrelatedColorTemperature.correlatedColorTemperature,
     Characteristic.Count._16.count16, Characteristic.Count._24.count24,
     Characteristic.CountryCode.countryCode, Characteristic.DateUtc.dateUtc,
-    Characteristic.ElectricCurrent.electricCurrent, Characteristic.Energy.energy,
+    Characteristic.ElectricCurrent.Range.electricCurrentRange,
+    Characteristic.ElectricCurrent.Specification.electricCurrentSpecification,
+    Characteristic.ElectricCurrent.Statistics.electricCurrentStatistics,
+    Characteristic.ElectricCurrent.electricCurrent,
+    Characteristic.Energy.PeriodDay.energyInAPeriodOfDay, Characteristic.Energy.energy,
     Characteristic.EventStatistics.eventStatistics, Characteristic.FixedString._16.fixedString16,
     Characteristic.FixedString._24.fixedString24, Characteristic.FixedString._36.fixedString36,
     Characteristic.FixedString._8.fixedString8, Characteristic.GenericLevel.genericLevel,
@@ -7661,7 +7757,7 @@ extension Characteristic: All {
     Characteristic.Luminous.FluxRange.luminousFluxRange,
     Characteristic.Luminous.Intensity.luminousIntensity, Characteristic.B02MassFlow.b02MassFlow,
     Characteristic.PerceivedLightness.perceivedLightness, Characteristic.Percentage8.percentage8,
-    Characteristic.Power.power,
+    Characteristic.Power.Specification.powerSpecification, Characteristic.Power.power,
     Characteristic.RelativeRuntime.CurrentRange.relativeRuntimeInACurrentRange,
     Characteristic.RelativeRuntime.GenericLevelRange.relativeRuntimeInAGenericLevelRange,
     Characteristic.RelativeValue.VoltageRange.relativeValueInAVoltageRange,
@@ -7672,8 +7768,10 @@ extension Characteristic: All {
     Characteristic.Time.Exponential._8.timeExponential8, Characteristic.Time.Hour._24.timeHour24,
     Characteristic.Time.Millisecond._24.timeMillisecond24,
     Characteristic.Time.Second._16.timeSecond16, Characteristic.Time.Second._8.timeSecond8,
-    Characteristic.Voltage.voltage, Characteristic.VolumeFlow.volumeFlow,
-    Characteristic.Rc.Feature.rcFeature, Characteristic.Rc.Settings.rcSettings,
+    Characteristic.Voltage.Specification.voltageSpecification,
+    Characteristic.Voltage.Statistics.voltageStatistics, Characteristic.Voltage.voltage,
+    Characteristic.VolumeFlow.volumeFlow, Characteristic.Rc.Feature.rcFeature,
+    Characteristic.Rc.Settings.rcSettings,
     Characteristic.Reconnection.Ccp.reconnectionConfigurationControlPoint,
     Characteristic.Iod.StatusChanged.iddStatusChanged, Characteristic.Iod.Status.iddStatus,
     Characteristic.Iod.AnnunciationStatus.iddAnnunciationStatus,
@@ -7727,7 +7825,10 @@ extension Characteristic: All {
     Characteristic.Set.IdentityResolvingKey.setIdentityResolvingKey,
     Characteristic.Set.CoordinatedSize.coordinatedSetSize,
     Characteristic.Set.MemberLock.setMemberLock, Characteristic.Set.MemberRank.setMemberRank,
-    Characteristic.DeviceTime.deviceTime, Characteristic.TimeChangeLogData.timeChangeLogData,
+    Characteristic.DeviceTime.Feature.deviceTimeFeature,
+    Characteristic.DeviceTime.Parameters.deviceTimeParameters,
+    Characteristic.DeviceTime.Cp.deviceTimeControlPoint, Characteristic.DeviceTime.deviceTime,
+    Characteristic.TimeChangeLogData.timeChangeLogData,
     Characteristic.MediaPlayer.Name.mediaPlayerName,
     Characteristic.MediaPlayer.IconObjectId.mediaPlayerIconObjectId,
     Characteristic.MediaPlayer.IconUrl.mediaPlayerIconUrl,
