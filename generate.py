@@ -1,5 +1,5 @@
 from code_generator import *
-from new_converter import *
+from converter import *
 
 def generate_services():
     items = read_services()
