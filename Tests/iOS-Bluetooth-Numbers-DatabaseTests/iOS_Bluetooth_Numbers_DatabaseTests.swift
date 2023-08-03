@@ -23,12 +23,12 @@ final class iOS_Bluetooth_Numbers_DatabaseTests: XCTestCase {
     
     func testFind() throws {
         let hipCircumference = Characteristic.find(by: CBUUID(string: "2A8F"))
-        XCTAssertEqual(hipCircumference, Characteristic.HipCircumference.hipCircumference)
+        XCTAssertEqual(hipCircumference, Characteristic.hipCircumference)
         
         let eddystoneConfigurationService = Service.find(by: CBUUID(string: "A3C87500-8ED3-4BDF-8A39-A01BEBEDE295"))
-        XCTAssertEqual(eddystoneConfigurationService, Service.Google.Eddystone.Configuration.eddystoneConfigurationService)
+        XCTAssertEqual(eddystoneConfigurationService, Service.googleEddystoneConfiguration)
         
         let validRange = Descriptor.find(by: CBUUID(string: "2906"))
-        XCTAssertEqual(validRange, Descriptor.ValidRange.validRange)
+        XCTAssertEqual(validRange, Descriptor.validRange)
     }
 }
