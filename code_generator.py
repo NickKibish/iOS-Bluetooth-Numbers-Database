@@ -42,30 +42,22 @@ def print_swift_struct_extension(items, parent_keys, print_function, concat=Stri
 
     return concat
 
-def print_all(items, parent_keys, concat=StringConcatenator()):
+def print_all(items, struct_name, concat=StringConcatenator()):
     """
     Print `all` computed variable that returns all services, characteristics or descriptors.
 
     :param items: dictionary with all services, characteristics or descriptors
     :param parent_keys: list of keys to the current item. It will be used to create name of the struct
     """
-    struct_name = ".".join(parent_keys)
-    keys = list(items.keys())
-    all_names = []
-    for key in keys:
-        if key == INNER_SERVICE_KEY:
-            continue
-        (_n, _c) = print_all(items[key], parent_keys + [key], concat)
-        all_names += _n
-
-    if INNER_SERVICE_KEY in keys:
-        for service in items[INNER_SERVICE_KEY]:
-            all_names.append(struct_name + '.' + service["var_name"])
     
+    all_names = []
+
+    for item in items:
+        all_names.append("." + item["var_name"])
+
     concat.add('extension ' + struct_name + ': All {')
-    concat.add('public typealias T = ' + parent_keys[0])
     all_names_str = ', '.join(all_names)
-    str = 'public static let all = [' + all_names_str + ']'
+    str = 'public static let all: [' + struct_name + '] = [' + all_names_str + ']'
     concat.add(str)
     concat.add('}')
 
